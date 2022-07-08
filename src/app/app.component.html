@@ -1,0 +1,133 @@
+<div class="search">
+  <form #form="ngForm" (submit)="onSubmit()">
+    <input type="text" placeholder="Search City" name="city" [(ngModel)]="cityName">
+  </form>
+</div>
+
+<div class="container" *ngIf="weatherData">
+  <div class="upper-data">
+    <img src="../assets/cold.jpg" *ngIf="weatherData.main.temp <= 15">
+    <img src="../assets/hot.jpg" *ngIf="weatherData.main.temp > 15">
+      <div class="weather-data">
+        <div class="location">
+          {{weatherData.name}}
+        </div>
+        <div class="temperature">
+          {{ weatherData.main.temp | number: '1.0-0'}}°C
+        </div>
+      </div>
+  </div>
+  <div class="lower-data">
+    <div class="more-info-label">
+      More Information
+    </div>
+    <div class="more-info-container">
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="https://cdn-icons-png.flaticon.com/512/1240/1240064.png?w=1380&t=st=1657132762~exp=1657133362~hmac=978b393b6c1c249865f688b65993cbd893095378aa6423bac5329b3f615f5a76">
+          <span>Min</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.main.temp_min | number: '1.0-0'}}°C
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="https://cdn-icons-png.flaticon.com/512/1246/1246485.png?w=1380&t=st=1657063393~exp=1657063993~hmac=068f115a257d612e61b9657a79f072155cdffd5547467366f3a4467b2ee66c89">
+          <span>Max</span>
+
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.main.temp_max | number: '1.0-0'}}°C
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="https://cdn-icons-png.flaticon.com/512/1247/1247105.png?w=1380&t=st=1657131954~exp=1657132554~hmac=59b3cf8bda228ee3748cb3e166785bc221794e68c6feb703b53d47073b6b0f78">
+          <span>Humidity</span>
+
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.main.humidity | number: '1.0-0'}}%
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="https://cdn-icons-png.flaticon.com/512/1247/1247122.png?w=1380&t=st=1657131987~exp=1657132587~hmac=17db03f4d098c91b0016b3474e1260744eff952c553b24a88462873c943d8182">
+          <span>Wind</span>
+
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.wind.speed| number: '1.0-0'}}km/h
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+</div>
+
+<!-- <div class="container">
+  <div class="upper-data">
+    <img src="../assets/cold.jpg" *ngIf="14 > 15">
+    <img src="../assets/hot.jpg" *ngIf="14 <= 15">
+      <div class="weather-data">
+        <div class="location">
+          Toronto
+        </div>
+        <div class="temperature">
+          {{ 14.40 | number: '1.0-0'}}°C
+        </div>
+      </div>
+  </div>
+  <div class="lower-data">
+    <div class="more-info-label">
+      More Information
+    </div>
+    <div class="more-info-container">
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="https://cdn-icons-png.flaticon.com/512/1240/1240064.png?w=1380&t=st=1657132762~exp=1657133362~hmac=978b393b6c1c249865f688b65993cbd893095378aa6423bac5329b3f615f5a76">
+          <span>Min</span>
+
+        </div>
+        <div class="info-block-value">
+          10°C
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="https://cdn-icons-png.flaticon.com/512/1246/1246485.png?w=1380&t=st=1657063393~exp=1657063993~hmac=068f115a257d612e61b9657a79f072155cdffd5547467366f3a4467b2ee66c89">
+          <span>Max</span>
+
+        </div>
+        <div class="info-block-value">
+          20°C
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="https://cdn-icons-png.flaticon.com/512/1247/1247105.png?w=1380&t=st=1657131954~exp=1657132554~hmac=59b3cf8bda228ee3748cb3e166785bc221794e68c6feb703b53d47073b6b0f78">
+          <span>Min</span>
+
+        </div>
+        <div class="info-block-value">
+          77%
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="https://cdn-icons-png.flaticon.com/512/1247/1247122.png?w=1380&t=st=1657131987~exp=1657132587~hmac=17db03f4d098c91b0016b3474e1260744eff952c553b24a88462873c943d8182">
+          <span>Wind</span>
+
+        </div>
+        <div class="info-block-value">
+          11 km/h
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+</div> -->
+<router-outlet></router-outlet>
